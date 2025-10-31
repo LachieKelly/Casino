@@ -1,0 +1,1357 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #2E7D32;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    /* Align to start so content can scroll when viewport is small */
+    align-items: flex-start;
+    padding-top: 40px; /* provide some spacing from top */
+    z-index: 1000;
+    overflow-y: auto; /* allow scrolling the modal container */
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    border: 2px solid #3498db;
+    /* Prevent modal content from overflowing the viewport */
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+    font-family: Arial, sans-serif;
+    color: #f5f5dc;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(245, 245, 220, 0.5);
+}
+
+/* Profile Setup */
+.profile-setup {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: #ecf0f1;
+    text-align: left;
+}
+
+.input-group input {
+    padding: 12px;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #f5f5dc;
+    box-shadow: 0 0 10px rgba(245, 245, 220, 0.3);
+}
+
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.avatar-option {
+    width: 60px;
+    height: 60px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.avatar-option:hover {
+    border-color: #3498db;
+    transform: scale(1.1);
+}
+
+.avatar-option.selected {
+    border-color: #f5f5dc;
+    box-shadow: 0 0 15px rgba(245, 245, 220, 0.5);
+}
+
+/* Button Styles */
+.btn-primary, .btn-secondary, .btn-back {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #f5f5dc, #e6e6d4);
+    color: #333;
+    box-shadow: 0 4px 15px rgba(245, 245, 220, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 245, 220, 0.4);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.btn-back {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-back:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+/* Header Styles */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #3498db;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #f5f5dc;
+    object-fit: cover;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+}
+
+.user-details h3 {
+    font-family: Arial, sans-serif;
+    color: #f5f5dc;
+    margin-bottom: 0.25rem;
+}
+
+.wallet {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wallet-label {
+    color: #bdc3c7;
+    font-size: 0.9rem;
+}
+
+.wallet-amount {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2ecc71;
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+}
+
+/* Main Game Area */
+.game-main {
+    padding: 2rem;
+    text-align: center;
+}
+
+.game-title {
+    font-family: Arial, sans-serif;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, #f5f5dc, #e6e6d4, #f5f5dc);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.game-card {
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    padding: 2rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    border-color: #f5f5dc;
+    box-shadow: 0 20px 40px rgba(245, 245, 220, 0.3);
+}
+
+.game-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.game-card h3 {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #f5f5dc;
+}
+
+.game-card p {
+    color: #bdc3c7;
+    line-height: 1.5;
+}
+
+.game-card.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.game-card.locked:hover {
+    transform: none;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.game-card.locked::after {
+    content: '🔒';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Game Area */
+.game-area {
+    padding: 2rem;
+    min-height: 70vh;
+}
+
+.game-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #3498db;
+}
+
+.game-header-bar h2 {
+    font-family: Arial, sans-serif;
+    color: #f5f5dc;
+    font-size: 2rem;
+}
+
+/* Game Specific Styles */
+.game-content {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid #3498db;
+}
+
+.betting-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.bet-input-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.bet-input-group label {
+    font-weight: 500;
+    color: #ecf0f1;
+}
+
+.bet-input-group input {
+    padding: 8px 12px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    width: 100px;
+    text-align: center;
+}
+
+.bet-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.bet-btn {
+    padding: 8px 16px;
+    border: 2px solid #3498db;
+    background: transparent;
+    color: #3498db;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bet-btn:hover {
+    background: #3498db;
+    color: #fff;
+}
+
+.bet-btn.active {
+    background: #f5f5dc;
+    border-color: #f5f5dc;
+    color: #2c3e50;
+}
+
+.game-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0.5rem;
+}
+
+.spin-btn {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.spin-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.spin-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.hit-btn {
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.hit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+.stand-btn {
+    background: linear-gradient(45deg, #f5f5dc, #e8e8e8);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
+.stand-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+}
+
+/* Roulette Styles */
+.roulette-table {
+    display: flex;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #0d5016;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.roulette-wheel-container {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.roulette-wheel {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #e74c3c 0deg 9.73deg,
+        #2c3e50 9.73deg 19.46deg,
+        #e74c3c 19.46deg 29.19deg,
+        #2c3e50 29.19deg 38.92deg,
+        #e74c3c 38.92deg 48.65deg,
+        #2c3e50 48.65deg 58.38deg,
+        #e74c3c 58.38deg 68.11deg,
+        #2c3e50 68.11deg 77.84deg,
+        #e74c3c 77.84deg 87.57deg,
+        #2c3e50 87.57deg 97.3deg,
+        #e74c3c 97.3deg 107.03deg,
+        #2c3e50 107.03deg 116.76deg,
+        #e74c3c 116.76deg 126.49deg,
+        #2c3e50 126.49deg 136.22deg,
+        #e74c3c 136.22deg 145.95deg,
+        #2c3e50 145.95deg 155.68deg,
+        #e74c3c 155.68deg 165.41deg,
+        #2c3e50 165.41deg 175.14deg,
+        #e74c3c 175.14deg 184.87deg,
+        #2c3e50 184.87deg 194.6deg,
+        #e74c3c 194.6deg 204.33deg,
+        #2c3e50 204.33deg 214.06deg,
+        #e74c3c 214.06deg 223.79deg,
+        #2c3e50 223.79deg 233.52deg,
+        #e74c3c 233.52deg 243.25deg,
+        #2c3e50 243.25deg 252.98deg,
+        #e74c3c 252.98deg 262.71deg,
+        #2c3e50 262.71deg 272.44deg,
+        #e74c3c 272.44deg 282.17deg,
+        #2c3e50 282.17deg 291.9deg,
+        #e74c3c 291.9deg 301.63deg,
+        #2c3e50 301.63deg 311.36deg,
+        #e74c3c 311.36deg 321.09deg,
+        #2c3e50 321.09deg 330.82deg,
+        #e74c3c 330.82deg 340.55deg,
+        #2c3e50 340.55deg 350.28deg,
+        #27ae60 350.28deg 360deg
+    );
+    position: relative;
+    border: 3px solid #8b4513;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: transform 3s ease-out;
+}
+
+.wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: #f4e4bc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wheel-spindle {
+    width: 8px;
+    height: 8px;
+    background: #d4af37;
+    border-radius: 50%;
+}
+
+.roulette-pointer {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 16px solid #d4af37;
+    z-index: 20;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+}
+
+.betting-table {
+    flex: 1;
+    background: #0d5016;
+}
+
+.betting-grid {
+    display: grid;
+    gap: 5px;
+    margin-top: 1rem;
+}
+
+.zero-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2px;
+    margin-bottom: 10px;
+}
+
+.number-row {
+    display: contents;
+}
+
+.bet-option {
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bet-option:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bet-option.selected {
+    background: #f5f5dc !important;
+    color: #000 !important;
+    box-shadow: 0 0 15px rgba(245, 245, 220, 0.8);
+}
+
+.number-bet {
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number-bet.red {
+    background: #e74c3c;
+    color: white;
+}
+
+.number-bet.black {
+    background: #2c3e50;
+    color: white;
+}
+
+.zero-bet {
+    background: #27ae60;
+    color: white;
+    padding: 8px 20px;
+    font-size: 1.2rem;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.outside-bets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.outside-bet {
+    background: #34495e;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.even-money-bets {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+}
+
+.even-bet {
+    background: #34495e;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.even-bet.red {
+    background: #e74c3c;
+}
+
+.even-bet.black {
+    background: #2c3e50;
+}
+
+.wheel-numbers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.wheel-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roulette-numbers {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: #2c3e50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.roulette-betting {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.roulette-bet {
+    padding: 10px;
+    border: 2px solid #3498db;
+    background: transparent;
+    color: #3498db;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.roulette-bet:hover {
+    background: #3498db;
+    color: #fff;
+}
+
+.roulette-bet.selected {
+    background: #f5f5dc;
+    border-color: #f5f5dc;
+    color: #fff;
+}
+
+/* Blackjack Styles */
+.blackjack-table {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hand {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 120px;
+    align-items: center;
+}
+
+.card {
+    width: 60px;
+    height: 84px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    background: #fff;
+    color: #000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card.red {
+    color: #e74c3c;
+}
+
+.card.black {
+    color: #2c3e50;
+}
+
+.hand-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #f5f5dc;
+}
+
+.hand-value {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2ecc71;
+    margin-top: 0.5rem;
+}
+
+/* Slot Machine Styles */
+.slot-machine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.slot-reels {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.slot-reel {
+    width: 80px;
+    height: 120px;
+    border: 3px solid #f5f5dc;
+    border-radius: 10px;
+    background: #2c3e50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.slot-lever {
+    width: 60px;
+    height: 100px;
+    background: linear-gradient(45deg, #8b4513, #a0522d);
+    border: 3px solid #654321;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.slot-lever:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4);
+}
+
+.slot-lever:active {
+    transform: translateY(2px);
+}
+
+/* Horse Racing Styles */
+.horse-race {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.race-track {
+    position: relative;
+    background: linear-gradient(90deg, #8B4513, #D2691E, #8B4513);
+    border: 4px solid #654321;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.race-track::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 48px,
+        rgba(255, 255, 255, 0.1) 50px,
+        rgba(255, 255, 255, 0.1) 52px
+    );
+    pointer-events: none;
+}
+
+.horse-lane {
+    position: relative;
+    height: 60px;
+    margin-bottom: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.horse-lane:hover {
+    border-color: #3498db;
+    background: rgba(52, 152, 219, 0.1);
+}
+
+.horse-lane.selected {
+    border-color: #f5f5dc;
+    background: rgba(243, 156, 18, 0.2);
+    box-shadow: 0 0 15px rgba(243, 156, 18, 0.3);
+}
+
+.horse-lane:last-child {
+    margin-bottom: 0;
+}
+
+.horse-info {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+}
+
+.horse-icon {
+    font-size: 2rem;
+    width: 40px;
+    text-align: center;
+}
+
+.horse-name {
+    font-weight: 500;
+    color: #ecf0f1;
+    font-size: 1.1rem;
+}
+
+.horse-odds {
+    color: #2ecc71;
+    font-weight: bold;
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+}
+
+.horse-runner {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    transition: left 0.1s ease;
+    z-index: 3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.horse-runner.speed-boost {
+    animation: speedBoost 0.5s ease-in-out;
+}
+
+@keyframes speedBoost {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.2); }
+}
+
+.finish-line {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: repeating-linear-gradient(
+        0deg,
+        #fff 0px,
+        #fff 10px,
+        #000 10px,
+        #000 20px
+    );
+    z-index: 1;
+}
+
+.race-status {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f5f5dc;
+    margin-bottom: 1rem;
+}
+
+.speed-indicator {
+    position: absolute;
+    top: -25px;
+    right: 10px;
+    background: #e74c3c;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.speed-indicator.show {
+    opacity: 1;
+}
+
+/* Mines Game Styles */
+.mines-game .mines-controls {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.mines-grid {
+    display: grid;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.mine-cell {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(180deg, #3a5a40, #2e6f3f);
+    border: 2px solid rgba(255,255,255,0.06);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: transform 0.08s ease, background 0.2s ease, box-shadow 0.15s ease;
+    user-select: none;
+}
+
+.mine-cell:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+
+.mine-cell.revealed {
+    background: linear-gradient(180deg, #f5f5dc, #e6e6d4);
+    color: #2c3e50;
+    cursor: default;
+    transform: none;
+}
+
+.mine-cell.bomb {
+    background: linear-gradient(180deg, #e74c3c, #c0392b);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(231,76,60,0.4);
+}
+
+#minesStatus {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #f5f5dc;
+}
+
+#minesResult .winning {
+    margin-top: 1rem;
+}
+
+@media (max-width: 480px) {
+    .mine-cell { width: 48px; height: 48px; font-size: 1.1rem; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-title {
+        font-size: 2rem;
+    }
+    
+    .roulette-wheel {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .slot-reels {
+        gap: 0.5rem;
+    }
+    
+    .slot-reel {
+        width: 60px;
+        height: 90px;
+        font-size: 2rem;
+    }
+    
+    .horse-progress {
+        width: 150px;
+    }
+}
+
+/* Animations */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinning {
+    animation: spin 3s ease-out;
+}
+
+@keyframes win {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.winning {
+    animation: win 0.5s ease-in-out 3;
+}
+
+@keyframes lose {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.losing {
+    animation: lose 0.3s ease-in-out 3;
+}
+
+/* Header Buttons */
+.header-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Chat Panel Styles */
+.chat-panel {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 320px;
+    max-height: 70vh;
+    background: linear-gradient(180deg, #233d2e, #1b2f24);
+    border: 2px solid #3498db;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    z-index: 1200;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.chat-title {
+    font-weight: 700;
+    color: #f5f5dc;
+}
+
+.chat-messages {
+    padding: 10px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.chat-message {
+    margin-bottom: 8px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.chat-message .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+    font-size: 1.2rem;
+}
+
+.chat-message .bubble {
+    background: rgba(255,255,255,0.06);
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: #f5f5dc;
+    max-width: 220px;
+    word-break: break-word;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 2px solid #3498db;
+    background: rgba(255,255,255,0.04);
+    color: #fff;
+}
+
+.chat-send-money {
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.send-money-row {
+    display: flex;
+    gap: 8px;
+}
+
+.send-money-row input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 2px solid #3498db;
+    background: rgba(255,255,255,0.04);
+    color: #fff;
+}
+
+.send-money-row input[type="number"] {
+    width: 90px;
+}
+
+/* Poker Game Styles */
+.poker-game { display: flex; justify-content: center; }
+.poker-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 320px; /* keep table centered vertically */
+}
+.opponent { display: flex; gap: 1.25rem; justify-content: center; width: 100%; }
+.bot { display: flex; flex-direction: column; align-items: center; gap: 6px; color: #f5f5dc; }
+.bot-cards { display: flex; gap: 8px; }
+.player-area { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.player-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 110px); /* slightly wider to accommodate card + button */
+    gap: 16px;
+    justify-content: center;
+    align-items: start;
+}
+
+/* Increase default card size for poker and make them clickable */
+.card {
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+.card:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,0.45); }
+.poker-card { width: 90px; height: 126px; border-radius: 10px; font-size: 1rem; }
+.hidden-card { background: linear-gradient(180deg, #2c3e50, #34495e); color: transparent; }
+
+/* Poker layout: player card wrapper and discard button */
+.player-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.player-card .card {
+    margin-bottom: 0; /* handled by gap */
+}
+
+/* Discard button styled similarly to the main game button but smaller */
+.discard-btn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: all 0.15s ease;
+    background: linear-gradient(45deg, #f5f5dc, #e6e6d4);
+    color: #2c3e50;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.discard-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.32);
+}
+
+/* Make discard button visually indicate active (marked for discard) */
+.card.discard {
+    opacity: 0.6;
+    transform: translateY(6px) scale(0.98);
+    border-color: #e74c3c;
+    box-shadow: 0 6px 18px rgba(231,76,60,0.35);
+}
+
+.discard-btn.active {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(231,76,60,0.35);
+}
+
+/* Bug Fights Styles */
+.bug-option {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background: rgba(255,255,255,0.03);
+    transition: all 0.2s ease;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+}
+.bug-option .bug-icon { font-size: 1.5rem; }
+.bug-option .bug-name { font-weight: 700; }
+.bug-option .bug-odds { font-size: 0.9rem; color: #bbb; }
+
+.bug-option.selected {
+    background: linear-gradient(90deg,#f39c12,#f1c40f) !important;
+    border-color: #f39c12 !important;
+    color: #111 !important;
+    box-shadow: 0 6px 14px rgba(243,156,18,0.25);
+    transform: translateY(-4px);
+}
+
+.bug-option.dead {
+    opacity: 0.45;
+    text-decoration: line-through;
+    cursor: not-allowed;
+    filter: grayscale(60%);
+}
+
+
+
