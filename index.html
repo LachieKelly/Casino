@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gambling Addiction Satisfier</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- User Profile Setup Modal -->
+        <div id="profileModal" class="modal">
+            <div class="modal-content">
+                <h2>Welcome to Gambling Addiction Satisfier!</h2>
+                <div class="profile-setup">
+                    <div class="input-group">
+                        <label for="username">Enter your name:</label>
+                        <input type="text" id="username" placeholder="Your gaming name" maxlength="20">
+                    </div>
+                    <div class="input-group">
+                        <label>Choose your avatar:</label>
+                        <div class="avatar-grid" id="avatarGrid">
+                            <!-- Avatars will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <button id="startGame" class="btn-primary" disabled>Start Playing!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Game Interface -->
+        <div id="mainGame" class="hidden">
+            <!-- Header -->
+            <header class="game-header">
+                <div class="user-info">
+                    <div id="userAvatar" class="user-avatar"></div>
+                    <div class="user-details">
+                        <h3 id="userName">Player</h3>
+                        <div class="wallet">
+                            <span class="wallet-label">Balance:</span>
+                            <span id="walletAmount" class="wallet-amount">$500.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-buttons">
+                    <button id="changeProfile" class="btn-secondary">Change Profile</button>
+                </div>
+            </header>
+
+            <!-- Game Selection -->
+            <main class="game-main">
+                <h1 class="game-title">Choose Your Game</h1>
+                <div class="games-grid">
+                    <div class="game-card" data-game="horse">
+                        <div class="game-icon">🐎</div>
+                        <h3>Horse Racing</h3>
+                        <p>Pick your winning horse and watch the race!</p>
+                    </div>
+                    <div class="game-card" data-game="bugs">
+                        <div class="game-icon">🐛</div>
+                        <h3>Bug Fights</h3>
+                        <p>Bet on a bug and watch the miniature showdown!</p>
+                    </div>
+                    <div class="game-card" data-game="blackjack">
+                        <div class="game-icon">🃏</div>
+                        <h3>Blackjack</h3>
+                        <p>Beat the dealer and get as close to 21 as possible!</p>
+                    </div>
+                    <div class="game-card" data-game="slots">
+                        <div class="game-icon">🎰</div>
+                        <h3>Slot Machine</h3>
+                        <p>Pull the lever and hope for the jackpot!</p>
+                    </div>
+                    <div class="game-card" data-game="mines">
+                        <div class="game-icon">💣</div>
+                        <h3>Mines</h3>
+                        <p>Click squares to find gems. Avoid bombs — clear all safe squares to win 5x your bet!</p>
+                    </div>
+
+                    <div class="game-card" data-game="shell">
+                        <div class="game-icon">🐚</div>
+                        <h3>Shell Game</h3>
+                        <p>Watch the shuffle, pick a cup, and win up to 5x your bet depending on difficulty.</p>
+                    </div>
+
+                    <div class="game-card locked" data-game="roulette">
+                        <div class="game-icon">🎪</div>
+                        <h3>Roulette</h3>
+                        <p>Under Maintenance</p>
+                    </div>
+                    <div class="game-card locked" data-game="poker">
+                        <div class="game-icon">🂡</div>
+                        <h3>Poker</h3>
+                        <p>Test your hand against others in classic Poker!</p>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Game Area -->
+            <div id="gameArea" class="game-area hidden">
+                <div class="game-header-bar">
+                    <button id="backToMenu" class="btn-back">← Back to Games</button>
+                    <h2 id="currentGameTitle">Game</h2>
+                </div>
+                <div id="gameContent">
+                    <!-- Game content will be loaded here -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js?v=1"></script>
+</body>
+</html>
